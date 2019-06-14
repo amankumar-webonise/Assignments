@@ -1,0 +1,68 @@
+class dstack
+{
+        struct node
+        {
+        int data;
+        node *next;
+        }*top,*temp;
+       public:
+        dstack()
+        {
+        top=NULL;
+        }
+        void push();
+        void pop();
+        void display();
+};
+ 
+void dstack::push()
+{
+temp=new node();
+cout<<"Enter the data";
+cin>>temp->data;
+ 
+    temp->next=top;
+    top=temp;
+ 
+}
+ 
+void dstack::pop()
+{
+temp=new node();
+temp=top;
+top=top->next;
+delete temp;
+cout<<"Deleted";
+}
+ 
+void dstack::display()
+{
+temp=new node();
+temp=top;
+    while(temp!=NULL)
+    {
+    cout<<" "<<temp->data;
+    temp=temp->next;
+    }
+ 
+void main()
+{
+clrscr();
+dstack s;
+int ch;
+do
+{
+cout<<"Enter Your Choice :\t";
+cin>>ch;
+    switch(ch)
+    {
+    case 1:s.push();
+        break;
+    case 2:s.pop();
+        break;
+    case 3:s.display();
+        break;
+    default : cout<<"Wrong Input";
+    }
+ }while(ch!=4);
+
